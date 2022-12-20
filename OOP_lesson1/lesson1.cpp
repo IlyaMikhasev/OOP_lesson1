@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string>
+#include "tyger.h"
 class Vehicle {
 public:
 	//конструктор (параматезированный)
-	Vehicle(int newMaxSpeed,const std::string& newColor,const std::string& newType) {
+	Vehicle(int newMaxSpeed, const std::string& newColor, const std::string& newType):maxSpeed(newMaxSpeed),color(newColor),type(newType) {
 		std::cout << "Constructor \n";
-		maxSpeed = newMaxSpeed;
+		/*maxSpeed = newMaxSpeed;    присвоение элемнетов лучше производить через :(6 rows)
 		color = newColor;
-		type = newType;	
+		type = newType;*/
 		s = new char[50];
 	}
 	Vehicle() = delete;//пустой конструктор создавать нельзя его нужно удалять
@@ -16,7 +17,7 @@ public:
 		color = "newColor";
 		type = "bus";
 	}
-	
+
 	Vehicle(Vehicle& obj) {//конструктор копирования
 		maxSpeed = obj.getMaxSpeed();
 		color = obj.getColor();
